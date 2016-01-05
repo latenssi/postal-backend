@@ -1,0 +1,25 @@
+postgres:
+  image: postgres
+  environment:
+    POSTGRES_PASSWORD:
+memcached:
+  image: memcached
+redis:
+  image: redis
+dev:
+  build: .
+  dockerfile: DockerfileDev
+  command: python manage.py runserver [::]:8000
+  volumes:
+    - .:/code
+  ports:
+    - "8000:8000"
+  links:
+    - postgres
+    - memcached
+  environment:
+    DEBUG: True
+    POSTGRES_PASSWORD:
+    SECRET_KEY: 1234
+    ALLOWED_HOSTS: '*'
+    MEMCACHED_HOST: 'memcached'
