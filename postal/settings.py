@@ -50,7 +50,7 @@ DATABASES = {
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
-        'LOCATION': os.getenv('MEMCACHED_HOST', '127.0.0.1'),
+        'LOCATION': os.getenv('MEMCACHED_PORT_11211_TCP_ADDR', '127.0.0.1'),
     }
 }
 
