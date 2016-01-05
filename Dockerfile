@@ -11,7 +11,7 @@ ENV POSTAL_SRVPROJ=/srv/postal
 # Create application subdirectories
 WORKDIR $POSTAL_SRVHOME
 RUN mkdir media static logs
-VOLUME ["$POSTAL_SRVHOME/media/", "$POSTAL_SRVHOME/static/"]
+VOLUME ["$POSTAL_SRVHOME/media/", "$POSTAL_SRVHOME/static/", "$POSTAL_SRVHOME/logs/"]
 
 ENV POSTAL_STATIC_ROOT=$POSTAL_SRVHOME/static
 ENV POSTAL_MEDIA_ROOT=$POSTAL_SRVHOME/media
