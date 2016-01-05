@@ -100,10 +100,10 @@ TIME_ZONE = os.getenv('TIME_ZONE', 'Europe/Helsinki')
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = os.getenv('STATIC_URL', '/static/')
-STATIC_ROOT = os.environ.get('STATIC_ROOT', os.path.join(BASE_DIR, 'static'))
+STATIC_ROOT = os.environ.get('POSTAL_STATIC_ROOT', os.path.join(BASE_DIR, 'static'))
 
 MEDIA_URL = os.getenv('MEDIA_URL', '/media/')
-MEDIA_ROOT = os.environ.get('MEDIA_ROOT', os.path.join(BASE_DIR, 'media'))
+MEDIA_ROOT = os.environ.get('POSTAL_MEDIA_ROOT', os.path.join(BASE_DIR, 'media'))
 
 LOGGING = {
     'version': 1,
