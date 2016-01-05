@@ -5,7 +5,7 @@ def str2bool(v):
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-DEBUG = str2bool(os.environ.get('DEBUG', False))
+DEBUG = str2bool(os.environ.get('POSTAL_DEBUG', False))
 
 # Security settings
 # SESSION_COOKIE_SECURE = True  # Can only be used when using HTTPS
@@ -32,16 +32,16 @@ TEMPLATES = [
     },
 ]
 
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split()
+ALLOWED_HOSTS = os.getenv('POSTAL_ALLOWED_HOSTS', '').split()
 
-SECRET_KEY = os.getenv('SECRET_KEY')
+SECRET_KEY = os.getenv('POSTAL_SECRET_KEY')
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': os.getenv('POSTGRES_ENV_POSTGRES_DB', 'postgres'),
         'USER': os.getenv('POSTGRES_ENV_POSTGRES_USER', 'postgres'),
-        'PASSWORD': os.getenv('POSTGRES_PASSWORD', ''),
+        'PASSWORD': os.getenv('POSTGRES_ENV_POSTGRES_PASSWORD', ''),
         'HOST': os.getenv('POSTGRES_PORT_5432_TCP_ADDR', 'localhost'),
         'PORT': os.getenv('POSTGRES_PORT_5432_TCP_PORT', '5432')
     }
@@ -86,7 +86,7 @@ WSGI_APPLICATION = 'postal.wsgi.application'
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
 
-LANGUAGE_CODE = os.getenv('LANGUAGE_CODE', 'en-us')
+LANGUAGE_CODE = os.getenv('POSTAL_LANGUAGE_CODE', 'en-us')
 
 USE_I18N = False
 
@@ -94,15 +94,15 @@ USE_L10N = False
 
 USE_TZ = True
 
-TIME_ZONE = os.getenv('TIME_ZONE', 'Europe/Helsinki')
+TIME_ZONE = os.getenv('POSTAL_TIME_ZONE', 'Europe/Helsinki')
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
-STATIC_URL = os.getenv('STATIC_URL', '/static/')
+STATIC_URL = os.getenv('POSTAL_STATIC_URL', '/static/')
 STATIC_ROOT = os.environ.get('POSTAL_STATIC_ROOT', os.path.join(BASE_DIR, 'static'))
 
-MEDIA_URL = os.getenv('MEDIA_URL', '/media/')
+MEDIA_URL = os.getenv('POSTAL_MEDIA_URL', '/media/')
 MEDIA_ROOT = os.environ.get('POSTAL_MEDIA_ROOT', os.path.join(BASE_DIR, 'media'))
 
 LOGGING = {
