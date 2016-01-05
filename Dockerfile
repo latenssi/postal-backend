@@ -21,7 +21,7 @@ ENV MEDIA_ROOT=$SRVHOME/media
 COPY $SRC $SRVPROJ
 
 # Install Python dependencies
-RUN pip install -r $SRVPROJ/requirements.txt
+RUN pip install -r $SRVPROJ/requirements.txt -U
 
 # Port to expose
 EXPOSE 8000
