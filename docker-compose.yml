@@ -11,10 +11,9 @@ dev:
     - memcached
     - redis
   environment:
-    DEBUG: 'True'
-    POSTGRES_PASSWORD:
-    SECRET_KEY: '1234'
-    ALLOWED_HOSTS: '*'
+    POSTAL_DEBUG: 'True'
+    POSTAL_SECRET_KEY: '1234'
+    POSTAL_ALLOWED_HOSTS: '*'
 postgres:
   image: postgres
   environment:
