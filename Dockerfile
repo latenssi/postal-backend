@@ -12,7 +12,7 @@ ENV SRVPROJ=/srv/app
 # Create application subdirectories
 WORKDIR $SRVHOME
 RUN mkdir media static logs
-VOLUME ["$SRVHOME/media/"]
+VOLUME ["$SRVHOME/media/","$SRVHOME/static/"]
 
 ENV STATIC_ROOT=$SRVHOME/static
 ENV MEDIA_ROOT=$SRVHOME/media
