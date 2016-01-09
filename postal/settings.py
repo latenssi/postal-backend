@@ -63,8 +63,16 @@ INSTALLED_APPS = (
 	'django.contrib.sessions',
 	'django.contrib.messages',
 	'django.contrib.staticfiles',
+
+    # 3rd party
 	'rest_framework',
-	'corsheaders'
+    'taggit',
+    'taggit_serializer',
+    'sorl.thumbnail',
+	'corsheaders',
+
+    # Own
+    'postal.posts'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -132,7 +140,7 @@ LOGGING = {
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.BasicAuthentication',
+        # 'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
     ),
     'DEFAULT_PERMISSION_CLASSES': (
