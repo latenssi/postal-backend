@@ -13,7 +13,7 @@ router.register(r'posts', PostViewSet)
 urlpatterns = [
 	url(r'^', include(router.urls)),
 	url(r'^admin/', include(admin.site.urls)),
-	url(r'^auth/', include('rest_framework.urls', namespace='rest_framework')),
+	url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 	url(r'^api-token-auth/', jwt_views.obtain_jwt_token),
  	url(r'^api-token-refresh/', jwt_views.refresh_jwt_token),
 	url(r'^user/$', CurrentUserView.as_view())
