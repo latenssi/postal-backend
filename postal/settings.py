@@ -66,6 +66,7 @@ INSTALLED_APPS = (
 
     # 3rd party
 	'rest_framework',
+	'rest_framework_jwt',
     'taggit',
     'taggit_serializer',
     'sorl.thumbnail',
@@ -140,20 +141,13 @@ LOGGING = {
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        # 'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
     ),
     'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
-    ),
-    'DEFAULT_THROTTLE_CLASSES': (
-        'rest_framework.throttling.AnonRateThrottle',
-        'rest_framework.throttling.UserRateThrottle'
-    ),
-    'DEFAULT_THROTTLE_RATES': {
-        'anon': '1000/day',
-        'user': '10000/day'
-    }
+        'rest_framework.permissions.IsAuthenticated',
+    )
 }
 
 CORS_ALLOW_CREDENTIALS = str2bool(os.environ.get('CORS_ALLOW_CREDENTIALS', True))
