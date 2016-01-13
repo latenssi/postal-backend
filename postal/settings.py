@@ -1,4 +1,5 @@
 import os
+import datetime
 
 def str2bool(v):
   return str(v).lower() in ("yes", "true", "t", "1")
@@ -148,6 +149,13 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
     )
+}
+
+JWT_AUTH = {
+    'JWT_AUTH_HEADER_PREFIX': 'Bearer',
+    'JWT_EXPIRATION_DELTA': datetime.timedelta(days=2),
+    'JWT_REFRESH_EXPIRATION_DELTA': datetime.timedelta(days=30),
+    'JWT_ALLOW_REFRESH': True
 }
 
 CORS_ALLOW_CREDENTIALS = str2bool(os.environ.get('CORS_ALLOW_CREDENTIALS', True))
