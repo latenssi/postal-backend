@@ -1,3 +1,5 @@
+from django.conf import settings
+from django.conf.urls.static import static
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 
@@ -17,4 +19,4 @@ urlpatterns = [
 	url(r'^api-token-auth/', jwt_views.obtain_jwt_token),
  	url(r'^api-token-refresh/', jwt_views.refresh_jwt_token),
 	url(r'^user/$', CurrentUserView.as_view())
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
