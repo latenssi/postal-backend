@@ -6,11 +6,12 @@ from django.contrib import admin
 from rest_framework.routers import DefaultRouter
 from rest_framework_jwt import views as jwt_views
 
-from postal.posts.viewsets import PostViewSet
+from postal.posts.viewsets import FilePostViewSet, PostViewSet
 from postal.user.views import CurrentUserView
 
 router = DefaultRouter()
 router.register(r'posts', PostViewSet)
+router.register(r'fileposts', FilePostViewSet)
 
 urlpatterns = [
 	url(r'^', include(router.urls)),
