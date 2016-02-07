@@ -115,6 +115,7 @@ class Post(TimeStampedModel, TitleSlugDescriptionModel):
 @receiver(pre_delete, sender=FilePost)
 def filepost_delete(sender, instance, **kwargs):
     sorl_thumbnail.delete(instance.file, delete_file=False)
+    
     # Delete post file
     instance.file.delete(False)
 
