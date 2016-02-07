@@ -20,6 +20,7 @@ ENV POSTAL_MEDIA_ROOT=$POSTAL_SRVHOME/media
 COPY $POSTAL_SRC $POSTAL_SRVPROJ
 
 # Install Python dependencies
+RUN pip install --upgrade pip
 RUN pip install -r $POSTAL_SRVPROJ/requirements.txt -U
 
 # Port to expose

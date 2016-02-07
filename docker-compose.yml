@@ -1,7 +1,8 @@
 dev:
   build: .
-  dockerfile: DockerfileDev
+  dockerfile: Dockerfile-dev
   command: python manage.py runserver [::]:8000
+  env_file: .env
   volumes:
     - .:/code
   ports:
@@ -10,14 +11,9 @@ dev:
     - postgres
     - memcached
     - redis
-  environment:
-    POSTAL_DEBUG: 'True'
-    POSTAL_SECRET_KEY: '1234'
-    POSTAL_ALLOWED_HOSTS: '*'
 postgres:
   image: postgres
-  environment:
-    POSTGRES_PASSWORD:
+  env_file: .env
 memcached:
   image: memcached
 redis:

@@ -1,3 +1,4 @@
 *.pyc
 .envrc
 media/
+.env
