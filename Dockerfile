@@ -29,4 +29,5 @@ EXPOSE 8000
 # Copy entrypoint script into the image
 WORKDIR $POSTAL_SRVPROJ
 COPY $POSTAL_SRC/scripts/docker-entrypoint.sh /
+RUN chmod +x /docker-entrypoint.sh
 ENTRYPOINT ["/docker-entrypoint.sh"]
